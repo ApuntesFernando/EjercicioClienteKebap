@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Kebap Fernando</string>
+    <string-array name="salsas">
+        <item>Sin salsa</item>
+        <item>Salsa Blanca</item>
+        <item>Salsa Roja</item>
+        <item>Salsa Roja y Blanca</item>
+    </string-array>
+    <string name="Tipo_de_pedido">Selecciona un tipo de pedido</string>
+    <string name="Realizar_pedido">Realizar pedido</string>
+    <string name="Ver_pedidos">Ver pedidos</string>
+    <string name="Delivery">Pedido a domicilio</string>
+    <string name="MainScreen">Bienvenido al Kebap</string>
+    <string name="OrderScreen">Completa tu pedido</string>
+    <string name="ListScreen">Lista de pedidos</string>
+</resources>
