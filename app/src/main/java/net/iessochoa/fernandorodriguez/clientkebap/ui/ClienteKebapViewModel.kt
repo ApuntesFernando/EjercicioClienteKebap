@@ -10,6 +10,7 @@ import net.iessochoa.fernandorodriguez.clientkebap.model.KebapOrder
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductSize
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductType
 import net.iessochoa.fernandorodriguez.clientkebap.model.Vegetables
+import net.iessochoa.fernandorodriguez.clientkebap.model.productPrice
 
 open class ClienteKebapViewModel : ViewModel() {
 
@@ -88,13 +89,33 @@ open class ClienteKebapViewModel : ViewModel() {
             }
         }
 
+    fun onNameSelected(name: String){
+
+            _uiState.update { currentState ->
+                currentState.copy(
+                    order = currentState.order.copy(
+                        clientName = name
+                    )
+                )
+            }
+    }
+
+    fun onOrderSelected(kebapOrder: KebapOrder){
+       _uiState.update { currentState ->
+           currentState.copy(
+               order = kebapOrder
+           )
+       }
+    }
+
 
         fun onOrderSaved() {
 
             _uiState.update { currentState ->
 
                 val newOrder = currentState.order.copy(
-                    id = currentState.orderList.size + 1
+                    id = currentState.orderList.size + 1,
+                    basePrice = currentState.order.productPrice()
                 )
 
                 currentState.copy(

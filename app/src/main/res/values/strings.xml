@@ -13,4 +13,5 @@
     <string name="MainScreen">Bienvenido al Kebap</string>
     <string name="OrderScreen">Completa tu pedido</string>
     <string name="ListScreen">Lista de pedidos</string>
+    <string name="ShowScreen">Resumen de pedido</string>
 </resources>

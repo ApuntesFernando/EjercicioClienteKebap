@@ -16,8 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import net.iessochoa.fernandorodriguez.clientkebap.R
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductType
-import net.iessochoa.sergiocontreras.doctorround.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,5 +1,6 @@
 package net.iessochoa.fernandorodriguez.clientkebap.ui
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -18,10 +19,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import net.iessochoa.fernandorodriguez.clientkebap.R
 import net.iessochoa.fernandorodriguez.clientkebap.ui.navigation.KebabListDestination
 import net.iessochoa.fernandorodriguez.clientkebap.ui.navigation.KebabMainDestination
+import net.iessochoa.fernandorodriguez.clientkebap.ui.navigation.KebabNavHost
 import net.iessochoa.fernandorodriguez.clientkebap.ui.navigation.KebabOrderDestination
-import net.iessochoa.sergiocontreras.doctorround.R
 
 
 
@@ -53,6 +55,12 @@ fun ClienteKebapApp(
             )
         }
     ) { innerPadding ->
+
+        KebabNavHost(
+            navController = navController,
+            viewModel = viewModel,
+            modifier = Modifier.padding(innerPadding)
+        )
 
 
     }

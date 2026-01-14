@@ -1,7 +1,8 @@
 package net.iessochoa.fernandorodriguez.clientkebap.ui.navigation
 
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.Navigation
-import net.iessochoa.sergiocontreras.doctorround.R
+import net.iessochoa.fernandorodriguez.clientkebap.R
 
 
 interface NavigationDestination{
@@ -26,3 +27,9 @@ object KebabListDestination : NavigationDestination{
     override val tittleRes = R.string.ListScreen
 
 }
+
+//object KebabShowOrderDestination : NavigationDestination{
+//    override val route = "Kebab_showOrder"
+//    override val tittleRes = R.string.ShowScreen
+//
+//}

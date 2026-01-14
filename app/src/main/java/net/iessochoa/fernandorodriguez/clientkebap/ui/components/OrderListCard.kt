@@ -1,5 +1,6 @@
 package net.iessochoa.fernandorodriguez.clientkebap.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -25,13 +26,15 @@ import net.iessochoa.fernandorodriguez.clientkebap.ui.theme.Typography
 
 @Composable
 fun OrderListCard(
-    kebapOrder: KebapOrder
+    kebapOrder: KebapOrder,
+    onClick: () -> Unit
 ){
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .clickable{onClick()},
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Row(
@@ -113,7 +116,7 @@ fun previewOrderListCard(){
         delivery = true
     )
 
-    OrderListCard(kebapOrder)
+//    OrderListCard(kebapOrder)
 
 }
 

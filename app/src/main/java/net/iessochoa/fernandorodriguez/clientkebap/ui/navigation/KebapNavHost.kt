@@ -24,17 +24,23 @@ fun KebabNavHost(
     ) {
         composable(route = KebabMainDestination.route){
             MainScreen(
-                onButtonClickOrder = {navController.navigate("OrderScreen")},
-                onButtonClickList = {navController.navigate("ListScreen")}
+                onButtonClickOrder = {navController.navigate(KebabOrderDestination.route)},
+                onButtonClickList = {navController.navigate(KebabListDestination.route)}
             )
         }
 
         composable(route = KebabOrderDestination.route){
-            // OrderScreen()
+            OrderScreen(
+                viewModel = viewModel,
+                onBack = {navController.popBackStack()} // Vuelve atras
+            )
         }
 
         composable (route = KebabListDestination.route){
-            ResumeScreen()
+            ResumeScreen(
+                viewModel = viewModel,
+                onOrderClick = {navController.navigate(KebabOrderDestination.route)}
+            )
         }
 
 

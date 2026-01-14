@@ -19,10 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import net.iessochoa.fernandorodriguez.clientkebap.R
 import net.iessochoa.fernandorodriguez.clientkebap.ui.ClienteKebapViewModel
 import net.iessochoa.fernandorodriguez.clientkebap.ui.theme.ClientKebapTheme
 import net.iessochoa.fernandorodriguez.clientkebap.ui.theme.Typography
-import net.iessochoa.sergiocontreras.doctorround.R
 
 
 @Composable
@@ -41,7 +41,7 @@ fun MainScreen(
 
 
         Button(
-            onClick = { } // Boton que al pulsar nos lleva a la pantalla de realizar pedido
+            onClick = { onButtonClickOrder() }
         ) {
             Text(
                 text = stringResource(R.string.Realizar_pedido),
@@ -53,7 +53,7 @@ fun MainScreen(
         Spacer(modifier = Modifier.padding(top = 10.dp))
 
         Button(
-            onClick = { TODO() }
+            onClick = { onButtonClickList() }
         ) {
             Text(
                 text = stringResource(R.string.Ver_pedidos),

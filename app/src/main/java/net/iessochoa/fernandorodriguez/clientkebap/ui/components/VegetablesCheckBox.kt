@@ -19,8 +19,6 @@ import androidx.compose.ui.unit.dp
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductType
 import net.iessochoa.fernandorodriguez.clientkebap.model.Vegetables
 import net.iessochoa.fernandorodriguez.clientkebap.ui.theme.Typography
-import net.iessochoa.sergiocontreras.doctorround.R
-import java.util.stream.Collectors.toList
 
 
 @Composable
