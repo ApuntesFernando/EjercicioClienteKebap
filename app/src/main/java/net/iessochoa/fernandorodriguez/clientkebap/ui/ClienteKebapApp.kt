@@ -34,6 +34,7 @@ fun ClienteKebapApp(
     navController: NavHostController = rememberNavController()
 ){
 
+    // Esta declaracion es para mostrar los titulos de la pantalla dependiendo de en cual se encuentre
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
 
@@ -67,6 +68,8 @@ fun ClienteKebapApp(
 
 }
 
+
+// DECLARACION DEL TOP BAR CON SU ICONO DE FLECHA PARA VOLVER ATRAS
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KebapOrderTopAppBar(

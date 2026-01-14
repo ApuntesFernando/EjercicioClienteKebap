@@ -33,7 +33,8 @@ fun ProductTypeDropDown(
 
     ExposedDropdownMenuBox(
         expanded= expanded,
-        onExpandedChange = {expanded != expanded}
+        onExpandedChange = {expanded = !expanded},
+        modifier = modifier
     ) {
         OutlinedTextField(
             readOnly = true,

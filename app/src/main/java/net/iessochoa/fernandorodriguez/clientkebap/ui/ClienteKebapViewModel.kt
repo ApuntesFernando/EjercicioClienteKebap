@@ -18,6 +18,8 @@ open class ClienteKebapViewModel : ViewModel() {
 
     val uiState: StateFlow<ClienteKebapUiState> = _uiState.asStateFlow()
 
+
+    // Funcion para actualizar el tamaño del producto
     fun onSizeSelected(newSize: ProductSize) {
 
         _uiState.update { currentState ->
@@ -29,7 +31,8 @@ open class ClienteKebapViewModel : ViewModel() {
         }
     }
 
-    fun onProductSelected(type : ProductType){
+    // Funcion para actualizar el tipo de producto
+    fun onProductSelected(type: ProductType) {
 
         _uiState.update { currentState ->
             currentState.copy(
@@ -40,15 +43,18 @@ open class ClienteKebapViewModel : ViewModel() {
         }
     }
 
+
+    // Funcion para actualizar la lista de verduras
     fun onVegetableSelected(newVegetables: Vegetables) {
 
         _uiState.update { currentState ->
             // Comprobamos si la lista tiene el vegetal
-            val ingredientesActualizados = if (currentState.order.vegetables.contains(newVegetables)){
-                currentState.order.vegetables - newVegetables
-            } else {
-                currentState.order.vegetables + newVegetables
-            }
+            val ingredientesActualizados =
+                if (currentState.order.vegetables.contains(newVegetables)) {
+                    currentState.order.vegetables - newVegetables
+                } else {
+                    currentState.order.vegetables + newVegetables
+                }
             currentState.copy(
                 order = currentState.order.copy(
                     vegetables = ingredientesActualizados
@@ -57,6 +63,7 @@ open class ClienteKebapViewModel : ViewModel() {
         }
     }
 
+    // Funcion para actualizar el delivery
     fun onDeliveryChange(delivery: Boolean) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -67,6 +74,7 @@ open class ClienteKebapViewModel : ViewModel() {
         }
     }
 
+    // Funcion para actualizar las salsas
     fun onSalsasSelected(salsas: String) {
 
         _uiState.update { currentState ->
@@ -78,64 +86,74 @@ open class ClienteKebapViewModel : ViewModel() {
         }
     }
 
-        fun onNotesSelected(notas: String) {
 
-            _uiState.update { currentState ->
-                currentState.copy(
-                    order = currentState.order.copy(
-                        notes = notas
-                    )
+    // Funcion para actualizar las notas
+    fun onNotesSelected(notas: String) {
+
+        _uiState.update { currentState ->
+            currentState.copy(
+                order = currentState.order.copy(
+                    notes = notas
                 )
-            }
+            )
         }
+    }
 
-    fun onNameSelected(name: String){
 
-            _uiState.update { currentState ->
-                currentState.copy(
-                    order = currentState.order.copy(
-                        clientName = name
+    // Funcion para actualizar el nombre del cliente
+    fun onNameSelected(name: String) {
+
+        _uiState.update { currentState ->
+            currentState.copy(
+                order = currentState.order.copy(
+                    clientName = name
+                )
+            )
+        }
+    }
+
+
+    // Funcion para actualizar el pedido seleccionado y abrirlo en una nueva pantalla de nuevo
+    fun onOrderSelected(kebapOrder: KebapOrder) {
+        _uiState.update { currentState ->
+            currentState.copy(
+                order = kebapOrder
+            )
+        }
+    }
+
+    // Funcion para guardar un pedido
+    fun onOrderSaved() {
+
+        _uiState.update { currentState ->
+
+            val newOrder = currentState.order.copy(
+                basePrice = currentState.order.productPrice()
+            )
+
+
+            // Compruebo si el pedido existe en la lista.
+                // Si existe, modifica el existente
+                // Si no existe, lo agrega a la lista
+
+            val updatedOrders =
+                if (newOrder.id == 0) {
+                    // Pedido nuevo
+                    currentState.orderList + newOrder.copy(
+                        id = currentState.orderList.size + 1
                     )
-                )
-            }
-    }
-
-    fun onOrderSelected(kebapOrder: KebapOrder){
-       _uiState.update { currentState ->
-           currentState.copy(
-               order = kebapOrder
-           )
-       }
-    }
-
-
-        fun onOrderSaved() {
-
-            _uiState.update { currentState ->
-
-                val newOrder = currentState.order.copy(
-                    id = currentState.orderList.size + 1,
-                    basePrice = currentState.order.productPrice()
-                )
-
-                val updatedOrders =
-                    if(newOrder.id == 0){
-                        // Pedido nuevo
-                        currentState.orderList + newOrder.copy(
-                            id = currentState.orderList.size + 1
-                        )
-                    } else {
-                        // Edita el pedido existente
-                        currentState.orderList.map { order ->
-                            if (order.id == newOrder.id) newOrder else order
-                        }
+                } else {
+                    // Edita el pedido existente
+                    currentState.orderList.map { order ->
+                        if (order.id == newOrder.id) newOrder else order
                     }
+                }
 
-                currentState.copy(
-                    orderList = updatedOrders,
-                    order = KebapOrder()
-                )
-            }
+            currentState.copy(
+                orderList = updatedOrders,
+                order = KebapOrder()
+            )
         }
     }
+}
 

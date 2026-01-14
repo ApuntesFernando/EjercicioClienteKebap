@@ -36,7 +36,7 @@ fun SalsaTypeDropDown(
 
     ExposedDropdownMenuBox(
         expanded= expanded,
-        onExpandedChange = {expanded != expanded}
+        onExpandedChange = {expanded = !expanded}
     ) {
         OutlinedTextField(
             readOnly = true,
