@@ -118,8 +118,21 @@ open class ClienteKebapViewModel : ViewModel() {
                     basePrice = currentState.order.productPrice()
                 )
 
+                val updatedOrders =
+                    if(newOrder.id == 0){
+                        // Pedido nuevo
+                        currentState.orderList + newOrder.copy(
+                            id = currentState.orderList.size + 1
+                        )
+                    } else {
+                        // Edita el pedido existente
+                        currentState.orderList.map { order ->
+                            if (order.id == newOrder.id) newOrder else order
+                        }
+                    }
+
                 currentState.copy(
-                    orderList = currentState.orderList + newOrder,
+                    orderList = updatedOrders,
                     order = KebapOrder()
                 )
             }
