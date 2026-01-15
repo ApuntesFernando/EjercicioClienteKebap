@@ -2,24 +2,17 @@ package net.iessochoa.fernandorodriguez.clientkebap.ui.screens
 
 import android.annotation.SuppressLint
 import android.widget.Toast
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import net.iessochoa.fernandorodriguez.clientkebap.R
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductSize
 import net.iessochoa.fernandorodriguez.clientkebap.model.ProductType
@@ -82,7 +75,6 @@ fun OrderScreen(
             )
         }
 
-
         item {
             SalsaTypeDropDown(
                 selected = uiState.order.salsas,
@@ -92,7 +84,6 @@ fun OrderScreen(
             )
         }
 
-
         item {
             SizeRadioButton(
                 listaSize = listaSize,
@@ -101,7 +92,6 @@ fun OrderScreen(
             )
         }
 
-
         item {
             SwitchButton(
                 checked = uiState.order.delivery,
@@ -109,14 +99,12 @@ fun OrderScreen(
             )
         }
 
-
         item {
             OrderNotes(
                 onValueChange = { viewModel.onNotesSelected(it) },
                 kebapOrder = uiState.order
             )
         }
-
 
         item {
             Text(
@@ -143,11 +131,7 @@ fun OrderScreen(
 
     }
 
-
-
-    }
-
-
+}
 
 @SuppressLint("ViewModelConstructorInComposable")
 @Preview(

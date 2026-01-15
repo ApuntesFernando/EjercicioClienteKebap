@@ -7,9 +7,11 @@ import net.iessochoa.fernandorodriguez.clientkebap.model.Vegetables
 
 // Declaracion de los datos que se van a modificar y guardar para las siguientes pantallas
 data class ClienteKebapUiState (
+
     val order: KebapOrder = KebapOrder(),
 
     val orderList: List<KebapOrder> = emptyList()
+
 ){
 
 }
